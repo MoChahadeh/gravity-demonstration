@@ -97,6 +97,19 @@ for i in range(8):
     mass_group.add(mass)
 
 
+def watermark():
+    
+    font = pygame.font.SysFont('Arial', 20)
+    text_1 = font.render('Mohamad Chahadeh, 2023', True, (0,0,0))
+    text_2 = font.render('https://mochahadeh.com/', True, (0,0,0))
+    textRect_1 = text_1.get_rect()
+    textRect_2 = text_2.get_rect()
+    textRect_2.bottomleft = (10, height-10)
+    textRect_1.bottomleft = (10, height-30)
+    screen.blit(text_1, textRect_1)
+    screen.blit(text_2, textRect_2)
+
+
 while True:
 
     for event in pygame.event.get():
@@ -116,6 +129,8 @@ while True:
     screen.fill((150,150,150))
 
     mass_group.update()
+
+    watermark()
 
     pygame.display.update()
     clock.tick(15)
